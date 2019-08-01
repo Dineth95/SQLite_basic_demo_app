@@ -39,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         db.execSQL(" DELETE FROM " + TABLE_TASKS + "WHERE" + COLUMN_TASKNAME + "=\"" + taskname +"\";");
     }
 
+    //TODO
     public String databasetostring(){
         String dbstring="";
 
@@ -48,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         c.moveToFirst();
         while(!c.isAfterLast()){
             if(c.getString(c.getColumnIndex("taskname"))!=null){
-                dbstring=dbstring+c.getString(c.getColumnIndex("taskaname"));
+                dbstring=dbstring+c.getString(c.getColumnIndex("taskname"));
                 dbstring=dbstring+"\n";
             }
             c.moveToNext();
