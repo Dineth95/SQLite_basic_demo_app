@@ -36,10 +36,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public void removeTask(String taskname){
         SQLiteDatabase db=getWritableDatabase();
-        db.execSQL(" DELETE FROM " + TABLE_TASKS + "WHERE" + COLUMN_TASKNAME + "=\"" + taskname +"\";");
+        db.execSQL(" DELETE FROM " + TABLE_TASKS + " WHERE " + COLUMN_TASKNAME + "=\"" + taskname +"\";");
     }
 
-    //TODO
     public String databasetostring(){
         String dbstring="";
 
