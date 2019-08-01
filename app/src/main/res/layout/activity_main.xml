@@ -17,22 +17,27 @@
         android:hint="Enter Task Here"
         android:textAlignment="center"
         android:id="@+id/editTaskText"/>
+
     <Button
+        android:id="@+id/ButtonAddTask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="add Task"
-        android:id="@+id/ButtonAddTask" />
+        android:onClick="addButtonClicked"
+        android:text="add Task" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="remove Task"
         android:id="@+id/ButtonRemoveTask"
+        android:onClick="removeButtonClicked"
         />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:hint="No tasks Added Yet"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"/>
+        android:hint="No tasks Added Yet"
+        android:textAlignment="center"
+        android:textSize="20dp" />
 </LinearLayout>

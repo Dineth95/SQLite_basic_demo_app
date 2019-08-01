@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import static android.icu.text.MessagePattern.ArgType.SELECT;
+
 public class DatabaseHelper extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION=1;
@@ -20,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query=" CREATE TABLE " + TABLE_TASKS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + " TEXT " + ");";
+        String query=" CREATE TABLE " + TABLE_TASKS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TASKNAME + " TEXT " + ");";
         db.execSQL(query);
     }
 
@@ -34,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public void removeTask(String taskname){
         SQLiteDatabase db=getWritableDatabase();
-        db.execSQL("DELETE FROM" + TABLE_TASKS + "WHERE" + COLUMN_TASKNAME + "=\"" + taskname +"\";");
+        db.execSQL(" DELETE FROM " + TABLE_TASKS + "WHERE" + COLUMN_TASKNAME + "=\"" + taskname +"\";");
     }
 
     public String databasetostring(){
@@ -57,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL(" DROP TABLE IF EXISTS "+ TABLE_TASKS);
+        onCreate(db);
     }
 }
